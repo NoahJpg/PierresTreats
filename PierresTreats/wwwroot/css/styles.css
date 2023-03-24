@@ -109,11 +109,6 @@ img {
 }
 
 .home-bg {
-	background-image: url('~/css/img/salon-image.jpg');
 	background-size: cover;
 	background-position: center;
-}
-
-.center {
-	text-align: center;
 }
