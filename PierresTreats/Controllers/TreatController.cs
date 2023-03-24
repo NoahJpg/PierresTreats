@@ -55,7 +55,6 @@ namespace PierresTreats.Controllers
       }
     }
 
-// This one works, do not delete
     public ActionResult Details(int id)
     {
       Treat thisTreat = _db.Treats

@@ -32,7 +32,11 @@ namespace PierresTreats.Controllers
         Treat[] treats = _db.Treats
                         .Where(entry => entry.User.Id == currentUser.Id)
                         .ToArray();
-        model.Add("treats", treats);
+        model.Add("treats", treats);  
+
+      //Flavor logic
+        Flavor[] flavors = _db.Flavors.ToArray();
+        model.Add("flavors", flavors);
       }
       return View(model);
     }
