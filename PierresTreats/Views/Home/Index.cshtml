@@ -4,6 +4,7 @@
 
 @using PierresTreats.Models;
 
+
 <h1>Welcome to Pierre's Treats</h1>
 
 <hr>
@@ -18,6 +19,27 @@
     @foreach (Treat treat in Model["treats"])
     {
       <li>@Html.ActionLink(@treat.TreatName, "Details", "Treats", new { id = @treat.TreatId})</li>
+    }
+    
+  </ul>
+}
+else
+{
+  <h4>Treats</h4>
+  <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage your treats.</p>
+}
+----
+@if (User.Identity.IsAuthenticated)
+{
+  <h4>All Flavors:</h4>
+  @if (Model["flavors"].Length == 0)
+  {
+    <p>No flavors have been added yet!</p>
+  } 
+  <ul>
+    @foreach (Flavor flavor in Model["flavors"])
+    {
+      <li>@Html.ActionLink(@flavor.FlavorName, "Details", "Flavors", new { id = @flavor.FlavorId})</li>
     }
     
   </ul>

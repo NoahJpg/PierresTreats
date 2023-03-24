@@ -28,7 +28,7 @@ namespace PierresTreats.Controllers
     {
       string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
-      List<Flavor> model = _db.Flavors.ToList();
+      List<Flavor> model = _db.Flavors.OrderBy(flavor => flavor.FlavorName).ToList();
       return View(model);
     }
 
@@ -124,6 +124,14 @@ namespace PierresTreats.Controllers
       _db.TreatFlavors.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    [HttpPost, ActionName("Search")]
+    public ActionResult Search(string search)
+    {
+      List<Flavor> model = _db.Flavors.Where(flavor => flavor.FlavorName.ToLower()
+                              .Contains(search.ToLower())).ToList();
+      return View(model);
     }
   }
 }

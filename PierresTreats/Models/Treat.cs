@@ -8,16 +8,9 @@ namespace PierresTreats.Models
     public int TreatId { get; set; }
     [Required(ErrorMessage = "The treat's name can't be empty!")]
     public string TreatName { get; set; }
-    public string Ranking { get; set; }
 
     public List<TreatFlavor> JoinEntities { get;}
     public ApplicationUser User { get; set; }
   }
 
-    public enum Rating
-  {
-    excellent,
-    good,
-    alright
-  }
 }
