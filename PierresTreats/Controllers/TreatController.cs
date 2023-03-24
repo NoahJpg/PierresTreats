@@ -13,22 +13,22 @@ using System;
 namespace PierresTreats.Controllers
 {
   [Authorize]
-  public class TreatController : Controller
+  public class TreatsController : Controller
   {
     private readonly PierresTreatsContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
 
-    public TreatController(UserManager<ApplicationUser> userManager, PierresTreatsContext db)
+    public TreatsController(UserManager<ApplicationUser> userManager, PierresTreatsContext db)
     {
       _userManager = userManager;
       _db = db;
     }
-
+    
     public async Task<ActionResult> Index()
     {
       string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
-      List<Treat> model = _db.Treats.OrderBy(treat => treat.TreatName).ToList();
+      List<Treat> model = _db.Treats.OrderBy(treat => treat.Ranking).ToList();
       return View(model);
     }
 
@@ -55,6 +55,7 @@ namespace PierresTreats.Controllers
       }
     }
 
+// This one works, do not delete
     public ActionResult Details(int id)
     {
       Treat thisTreat = _db.Treats
@@ -95,7 +96,7 @@ namespace PierresTreats.Controllers
 
     public ActionResult AddFlavor(int id)
     {
-      Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      Treat thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
       return View(thisTreat);
     }
@@ -127,7 +128,7 @@ namespace PierresTreats.Controllers
     {
       string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
-      List<Treat> model = _db.Treats.OrderBy(treat => treat.TreatName).ToList();
+      List<Treat> model = _db.Treats.OrderBy(treat => treat.Ranking).ToList();
       return View(model);
     }
 
