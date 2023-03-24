@@ -27,7 +27,7 @@ A user authenticated MVC website for managing a bakery's treats and assigning fl
 
 #### Preliminary Project Set-up:
 1. Clone or download this repository to your machine.
-2. Navigate to the local directory (YourPath/PierresSweetTreats.Solutions/PierresTreats) and create a new file "appsettings.json".
+2. Navigate to the local directory (YourPath/PierresTreats-main/PierresTreats) and create a new file "appsettings.json".
 3. Open the file in VS Code and add:
   ```
   {
@@ -41,7 +41,7 @@ A user authenticated MVC website for managing a bakery's treats and assigning fl
 
 4. Create a .gitignore file and add "appsettings.json", "bin", and "obj" to the ignored file list.  
 5. Open your shell (e.g., Terminal or GitBash) and add your .gitignore file and commit it before adding any other files. 
-6. Navigate to this project's production directory called "Factory". 
+6. Navigate to this project's production directory called "PierresTreats". 
 7. In the command line, run these commands in order
  * `$ dotnet tool install --global dotnet-ef --version 6.0.0` 
  * `$ dotnet ef migrations add Initial` 
