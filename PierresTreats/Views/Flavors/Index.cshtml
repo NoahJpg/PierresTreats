@@ -12,12 +12,23 @@
 {
   <h3>No flavors have been added yet!</h3>
 } 
-
-@foreach (Flavor flavor in Model)
+else 
 {
-  <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", new { id = flavor.FlavorId })</li>
+  <ul>
+    @foreach (Flavor flavor in Model)
+    {
+      <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", new { id = flavor.FlavorId })</li>
+    } 
+  </ul>
+}
+<hr>
+
+@using (Html.BeginForm("Search", "Flavors")) {
+<label class="mdl-textfield__label" for="sample3">Search Flavors:</label>
+<br>
+<input class="mdl-textfield__input" type="text" name="search" id="sample3"><br><br>
+<input type="submit" name = "search" value="Search"/>
 }
 
 <hr>
-
 <p>@Html.ActionLink("- Add new flavor -", "Create")</p>

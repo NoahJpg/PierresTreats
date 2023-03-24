@@ -7,11 +7,11 @@
 @model PierresTreats.Models.Treat
 
 
-<h2>@Html.DisplayFor(model => model.TreatName) Details</h2>
+<h2><em>@Html.DisplayFor(model => model.TreatName)</em> Details</h2>
 <hr />
 @if (@Model.JoinEntities.Count == 0)
 {
-  <p><em>This treat does not have any flavor yet!</em></p>
+  <p><em>Treat's Flavors:</em></p>
 }
 else
 {
@@ -28,9 +28,7 @@ else
     }
   </ul>
 }
-
-<p>
-  @Html.ActionLink("- Edit Treat -", "Edit", new { id = Model.TreatId }) 
-  | @Html.ActionLink("- Delete Treat -", "Delete", new { id = Model.TreatId }) 
-  | @Html.ActionLink("- Add a Flavor -", "AddFlavor", new {id = Model.TreatId })
-</p>
+<hr>
+<p> @Html.ActionLink("- Edit Treat -", "Edit", new { id = Model.TreatId }) </p>
+<p> @Html.ActionLink("- Delete Treat -", "Delete", new { id = Model.TreatId }) </p>
+<p> @Html.ActionLink("- Add a Flavor -", "AddFlavor", new {id = Model.TreatId }) </p>
