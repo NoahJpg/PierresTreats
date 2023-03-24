@@ -6,8 +6,6 @@
 
 <h1>All Flavors</h1>
 
-<hr>
-
 @if (@Model.Count == 0)
 {
   <h3>No flavors have been added yet!</h3>
@@ -26,7 +24,8 @@ else
 @using (Html.BeginForm("Search", "Flavors")) {
 <label class="mdl-textfield__label" for="sample3">Search Flavors:</label>
 <br>
-<input class="mdl-textfield__input" type="text" name="search" id="sample3"><br><br>
+<input class="mdl-textfield__input" type="text" name="search" id="sample3" required>
+<br><br>
 <input type="submit" name = "search" value="Search"/>
 }
 

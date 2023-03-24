@@ -7,7 +7,6 @@
 @model PierresTreats.Models.Treat
 
 
-<h2><em>@Html.DisplayFor(model => model.TreatName)</em> Details</h2>
 <hr />
 @if (@Model.JoinEntities.Count == 0)
 {
@@ -15,7 +14,7 @@
 }
 else
 {
-  <h4>This treat has the following flavors:</h4>
+  <h2><em>@Html.DisplayFor(model => model.TreatName)</em> flavors:</h2>
   <ul>
   @foreach (TreatFlavor join in Model.JoinEntities)
     {
