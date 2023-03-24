@@ -27,7 +27,7 @@ A user authenticated MVC website for managing a bakery's treats and assigning fl
 
 #### Preliminary Project Set-up:
 1. Clone or download this repository to your machine.
-2. Navigate to the local directory (YourPath/StringFactory/Factory) and create a new file "appsettings.json".
+2. Navigate to the local directory (YourPath/PierresSweetTreats.Solutions/PierresTreats) and create a new file "appsettings.json".
 3. Open the file in VS Code and add:
   ```
   {
